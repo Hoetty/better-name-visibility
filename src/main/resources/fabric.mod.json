@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "name_visibility",
-  "version": "1.0",
+  "version": "1.1",
 
   "name": "Better Name Visibility",
   "description": "Increases Name Tag Visibility",
@@ -23,12 +23,11 @@
   "mixins": [
     "name-visibility.mixins.json"
   ],
-  "accessWidener" : "NameVisibility.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.13.3",
     "fabric": "*",
-    "minecraft": ">=1.18.2",
+    "minecraft": "1.19.3",
     "java": ">=17"
   },
   "suggests": {
