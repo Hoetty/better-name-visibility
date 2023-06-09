@@ -23,10 +23,10 @@ public class Main implements ModInitializer {
 			while (toggleNamesKey.wasPressed()){
 				if (NamesToggled){
 					NamesToggled = false;
-					client.player.sendMessage(Text.of("Name Visibility turned off"), false);
+					client.player.sendMessage(Text.of("Better Name Visibility §cOFF"), true);
 				}else{
 					NamesToggled = true;
-					client.player.sendMessage(Text.of("Name Visibility turned on"), false);
+					client.player.sendMessage(Text.of("Better Name Visibility §aON"), true);
 				}
 			}
 		});
