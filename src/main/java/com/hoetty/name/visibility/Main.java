@@ -12,23 +12,31 @@ import org.slf4j.LoggerFactory;
 
 public class Main implements ModInitializer {
 
-	private static KeyBinding toggleNamesKey;
-	public static boolean NamesToggled = true;
-	public static final Logger LOGGER = LoggerFactory.getLogger("name_visibility");
+    private static KeyBinding toggleNamesKey;
+    public static boolean NamesToggled = true;
+    public static final Logger LOGGER = LoggerFactory.getLogger("name_visibility");
 
-	@Override
-	public void onInitialize() {
-		toggleNamesKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.name_visibility.toggleNames", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_BRACKET,"category.name_visibility.keybindcategory"));
-		ClientTickEvents.END_CLIENT_TICK.register(client -> {
-			while (toggleNamesKey.wasPressed()){
-				if (NamesToggled){
-					NamesToggled = false;
-					client.player.sendMessage(Text.of("Better Name Visibility §cOFF"), true);
-				}else{
-					NamesToggled = true;
-					client.player.sendMessage(Text.of("Better Name Visibility §aON"), true);
-				}
-			}
-		});
-	}
+    /**
+     * Mod Entrypoint.
+     * Registers a keybinding for toggling the mod and loads the config.
+     */
+    @Override
+    public void onInitialize() {
+        NameConfig.HANDLER.load();
+
+        toggleNamesKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.name_visibility.toggleNames",
+                InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_RIGHT_BRACKET, "category.name_visibility.keybindcategory"));
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            while (toggleNamesKey.wasPressed()) {
+                if (NamesToggled) {
+                    NamesToggled = false;
+                    client.player.sendMessage(Text.of("Better Name Visibility §cOFF"), true);
+                } else {
+                    NamesToggled = true;
+                    client.player.sendMessage(Text.of("Better Name Visibility §aON"), true);
+                }
+            }
+        });
+    }
 }

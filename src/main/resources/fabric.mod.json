@@ -1,36 +1,35 @@
 {
-  "schemaVersion": 1,
-  "id": "name_visibility",
-  "version": "1.1",
-
-  "name": "Better Name Visibility",
-  "description": "Increases Name Tag Visibility",
-  "authors": [
-    "Hoetty"
-  ],
-  "contact": {
-  },
-
-  "license": "MIT",
-  "icon": "assets/name_visibility/icon.png",
-
-  "environment": "client",
-  "entrypoints": {
-    "main": [
-      "com.hoetty.name.visibility.Main"
-    ]
-  },
-  "mixins": [
-    "name-visibility.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.13.3",
-    "fabric": "*",
-    "minecraft": ">=1.21.2",
-    "java": ">=21"
-  },
-  "suggests": {
-    "another-mod": "*"
-  }
+    "schemaVersion": 1,
+    "id": "name_visibility",
+    "version": "2.0.0",
+    "name": "Better Name Visibility",
+    "description": "Increases Name Tag Visibility",
+    "authors": [
+        "Hoetty"
+    ],
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/name_visibility/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "com.hoetty.name.visibility.Main"
+        ],
+        "modmenu": [
+            "com.hoetty.name.visibility.ModMenuIntegration"
+        ]
+    },
+    "mixins": [
+        "name-visibility.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.13.3",
+        "fabric": "*",
+        "minecraft": ">=1.21.2",
+        "java": ">=21",
+        "yet_another_config_lib_v3": ">=3.6.1"
+    },
+    "suggests": {
+        "modmenu": "*"
+    }
 }
