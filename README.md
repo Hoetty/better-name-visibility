@@ -10,7 +10,7 @@ The improved rendering can be turned off or on at any time using a configurable 
 
 ## Configuration
 
-Several configuration options are provided through [YACL](https://modrinth.com/mod/yacl). You can edit the config using [Mod Menu](https://modrinth.com/mod/modmenu).
+Several configuration options are provided through [YACL](https://modrinth.com/mod/yacl) starting with v2.0.2. You can edit the config using [Mod Menu](https://modrinth.com/mod/modmenu). If you are looking for a no-config version with less dependencies you can use version v1.1.
 
 ### Foreground Color
 
