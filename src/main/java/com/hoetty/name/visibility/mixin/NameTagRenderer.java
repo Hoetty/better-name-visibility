@@ -6,17 +6,17 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Colors;
+import net.minecraft.text.TextColor;
 
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import com.hoetty.name.visibility.Main;
 import com.hoetty.name.visibility.NameConfig;
@@ -41,11 +41,6 @@ public abstract class NameTagRenderer {
      */
     private static final int FULLBRIGHT = LightmapTextureManager.pack(15, 15);
 
-    /**
-     * A style that removes Color from text.
-     */
-    private static final Style NO_COLOR = Style.EMPTY.withColor(Colors.WHITE);
-
     @Shadow
     private TextRenderer textRenderer;
 
@@ -67,12 +62,21 @@ public abstract class NameTagRenderer {
 
             // The text should always be mutable.
             if (text instanceof MutableText mutableText) {
-                mutableText.fillStyle(NO_COLOR);
+                Style style = mutableText.getStyle();
+
+                // Clear the color, if present.
+                if (style.getColor() != null) {
+                    mutableText.setStyle(style.withColor((TextColor) null));
+                }
 
                 // Text is made of multiple fragments, and each of them has to be cleared.
                 for (Text siblingText : text.getSiblings()) {
                     if (siblingText instanceof MutableText mutableSiblingText) {
-                        mutableSiblingText.fillStyle(NO_COLOR);
+
+                        style = mutableSiblingText.getStyle();
+                        if (style.getColor() != null) {
+                            mutableSiblingText.setStyle(style.withColor((TextColor) null));
+                        }
                     }
                 }
             }
