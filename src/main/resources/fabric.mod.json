@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "name_visibility",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "name": "Better Name Visibility",
     "description": "Increases Name Tag Visibility",
     "authors": [
