@@ -14,8 +14,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArgs;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import com.hoetty.name.visibility.Main;
@@ -104,13 +106,14 @@ public abstract class NameTagRenderer {
     }
 
     /**
-     * The game state saves the name to be displayed.
-     * Normally it writes null if the squared distance to the entity is > 4096.
+     * The game skips rendering names if the squared distance is > 4096.
      * This is equal to 64 blocks.
      * When enabled in the config, this limit is disabled.
      * This is only usefull in combination with scaling.
+     * 
+     * The limit is checked twice and also disabled in the other two mixins.
      */
-    @ModifyConstant(method = "updateRenderState", constant = @Constant(doubleValue = 4096.0))
+    @ModifyConstant(method = "renderLabelIfPresent", constant = @Constant(doubleValue = 4096.0))
     private double maxNameDistance(double original) {
         if (Main.NamesToggled && NameConfig.disableDistanceCheck) {
             return Double.MAX_VALUE;
