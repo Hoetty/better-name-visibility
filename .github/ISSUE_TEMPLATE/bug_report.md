@@ -29,7 +29,7 @@ eg. Sodium, Iris, ...
 **Additional context**
 Add any other context about the problem here.
 
-** Log file of the play session (latest.log) **
+**Log file of the play session (latest.log)**
 If you are able to, please provide the log file (or an extract) of the play session, where you encountered the issue. 
 
 When providing an extract, please include the part where the error happened, as well as the startup process listing all mods etc.
