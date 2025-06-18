@@ -25,9 +25,9 @@
     "depends": {
         "fabricloader": ">=0.13.3",
         "fabric": "*",
-        "minecraft": ">=1.21.2",
+        "minecraft": ">=1.21.6",
         "java": ">=21",
-        "yet_another_config_lib_v3": ">=3.6.1"
+        "yet_another_config_lib_v3": ">=3.7.1"
     },
     "suggests": {
         "modmenu": "*"
