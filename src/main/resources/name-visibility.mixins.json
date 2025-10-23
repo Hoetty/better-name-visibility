@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "NameTagRenderer"
+    "LabelCommandMixin",
+    "EntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

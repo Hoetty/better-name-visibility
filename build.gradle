@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 }
 
@@ -43,6 +43,9 @@ dependencies {
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
     modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0"))
+	include("io.github.llamalad7:mixinextras-fabric:0.5.0:slim")
 }
 
 processResources {
