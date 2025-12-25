@@ -1,4 +1,4 @@
-<a href="https://codeberg.org/Hoetty/marble">
+<a href="https://codeberg.org/Hoetty/better-name-visibility">
     <img src="https://raw.githubusercontent.com/Hoetty/hoetty/refs/heads/main/now-on-codeberg.svg">
 </a>
 
